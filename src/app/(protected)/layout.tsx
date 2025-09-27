@@ -17,6 +17,18 @@ export default function ProtectedLayout({
   const pathname = usePathname();
   const { isAuthenticated } = useAuthStore();
   const [mobileOpen, setMobileOpen] = React.useState(false);
+	
+  // Prevent background scroll when mobile drawer is open
+  React.useEffect(() => {
+    if (mobileOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [mobileOpen]);
 
   React.useEffect(() => {
     if (!isAuthenticated && !pathname.startsWith("/login")) {
@@ -31,7 +43,7 @@ export default function ProtectedLayout({
       <div className="grid grid-rows-[56px_1fr]">
         <Topbar onMenu={() => setMobileOpen((v) => !v)} />
         {mobileOpen && (
-          <div className="md:hidden fixed inset-0 z-50">
+          <div className="md:hidden fixed inset-0 z-[9999]">
             <div
               className="absolute inset-0 bg-black/40"
               onClick={() => setMobileOpen(false)}
@@ -74,7 +86,7 @@ export default function ProtectedLayout({
             </div>
           </div>
         )}
-        <main className="p-4 md:p-6 bg-slate-50">{children}</main>
+        <main className={`p-4 md:p-6 bg-slate-50 ${mobileOpen ? "pointer-events-none" : ""}`}>{children}</main>
       </div>
     </div>
   );
