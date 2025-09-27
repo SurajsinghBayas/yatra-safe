@@ -9,10 +9,25 @@ export function Topbar({ onMenu }: { onMenu?: () => void }) {
   return (
     <header className="h-14 border-b border-gray-300 bg-white flex items-center justify-between px-4">
       <div className="flex items-center gap-3">
-        <button aria-label="Open menu" onClick={onMenu} className="md:hidden inline-flex h-8 w-8 items-center justify-center rounded-lg hover:bg-gray-100">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="h-5 w-5 text-gray-800"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+        <button
+          aria-label="Open menu"
+          onClick={onMenu}
+          className="md:hidden inline-flex h-8 w-8 items-center justify-center rounded-lg hover:bg-gray-100"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            className="h-5 w-5 text-gray-800"
+          >
+            <path d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
         </button>
-  <div className="text-sm font-semibold text-gray-800">YatraSafe Admin</div>
+        <div className="text-sm font-semibold text-gray-800">
+          YatraSafe Admin
+        </div>
       </div>
       <div className="flex items-center gap-3">
         {user && (
@@ -21,10 +36,14 @@ export function Topbar({ onMenu }: { onMenu?: () => void }) {
             <span className="text-gray-500"> · {ROLE_LABELS[user.role]}</span>
           </div>
         )}
-        <Button size="sm" className="bg-red-500 hover:bg-red-600 text-white px-4 py-1 rounded-lg" onClick={logout}>Logout</Button>
+        <Button
+          size="sm"
+          className="bg-red-500 hover:bg-red-600 text-white px-4 py-1 rounded-lg"
+          onClick={logout}
+        >
+          Logout
+        </Button>
       </div>
     </header>
   );
 }
-
-

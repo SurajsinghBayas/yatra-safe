@@ -107,7 +107,7 @@ export function Sidebar() {
   const user = useAuthStore((s) => s.user);
   return (
     <aside className="w-60 bg-gray-900 text-white hidden md:block">
-            <div className="p-4 font-semibold tracking-tight">YatraSafe Admin</div>
+      <div className="p-4 font-semibold tracking-tight">YatraSafe Admin</div>
       <nav className="grid gap-1 p-2">
         {nav.map((item) => {
           if (!user || !hasPermission(user.role, item.perm)) return null;
