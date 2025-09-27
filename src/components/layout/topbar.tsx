@@ -12,7 +12,7 @@ export function Topbar({ onMenu }: { onMenu?: () => void }) {
         <button aria-label="Open menu" onClick={onMenu} className="md:hidden inline-flex h-8 w-8 items-center justify-center rounded-lg hover:bg-gray-100">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="h-5 w-5 text-gray-800"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
         </button>
-        <div className="text-sm font-semibold text-gray-800">Tourist Safety & Monitoring System</div>
+  <div className="text-sm font-semibold text-gray-800">YatraSafe Admin</div>
       </div>
       <div className="flex items-center gap-3">
         {user && (
